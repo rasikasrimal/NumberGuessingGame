@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:number_game/you_lost.dart';
 import 'dart:math';
-
-import 'correct_guess.dart';
+import 'package:number_game/correct_guess.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -45,7 +44,7 @@ class _NumberGuessingScreenState extends State<NumberGuessingScreen> {
         context,
         MaterialPageRoute(builder: (context) => YouLostScreen()),
       );
-    } else if (guess > 10) {
+    } else if (guess < 0 || guess > 10) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Please enter a number between 0 and 10.'),
