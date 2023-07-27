@@ -1,12 +1,19 @@
-# Number Guessing Game
+# How to Play
 
-The user is presented with a prompt to guess a number from 1 to 10.
-The prompt should include the following message: "I have a secret number in my mind (1 - 10). You have 3 chances to guess it."
-A Textbox should be provided that only accepts numeric characters for the user's input.
-If the user enters the correct guess, the app should navigate to a new screen (Correct Guess Page) displaying the correct number and a congratulatory message: "Congratulations! You've guessed it correctly."
-A button should be available to restart the game.
-If the user enters a wrong number, the app should navigate to another screen (Wrong Guess Page) and display the message: "Sorry! Wrong guess. Please try again."
-A button should be available to go back to the home screen.
-If the user guesses the number incorrectly three times, the app should navigate to a third screen (Game Over Page) and display the message: "Game Over."
-There should be a button to start the game again.
-Please Zip your lib folder and upload it as the deliverable of the assignment  as a .zip file
+1. **Launch the App**: Open the app on your device.
+
+2. **Game Prompt**: You will see a prompt saying, "I have a secret number in my mind (1 - 10). You have 3 chances to guess it."
+
+3. **Guess the Number**: Enter your guess in the provided textbox. The textbox only accepts numeric characters for input.
+
+4. **Correct Guess**: If your guess is correct, you will be taken to the "Correct Guess Page" with a congratulatory message: "Congratulations! You've guessed it correctly."
+
+5. **Wrong Guess**: If your guess is wrong, you will be taken to the "Wrong Guess Page" with the message: "Sorry! Wrong guess. Please try again."
+
+6. **Three Attempts**: You have three chances to guess the correct number. If you fail to guess correctly after three attempts, the game will end.
+
+7. **Game Over**: After three incorrect guesses, you will be taken to the "Game Over Page" with the message: "Game Over."
+
+8. **Restart the Game**: On each page, there are buttons available to restart the game and go back to the home screen.
+
+Enjoy the Number Guessing Game and see if you can guess the secret number! Good luck!
