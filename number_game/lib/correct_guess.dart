@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CorrectGuess extends StatelessWidget {
+  const CorrectGuess({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,7 +13,7 @@ class CorrectGuess extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
+            const Icon(
               Icons.check_circle_outline,
               size: 80,
               color: Colors.green,

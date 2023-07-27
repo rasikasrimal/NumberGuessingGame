@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class YouLostScreen extends StatelessWidget {
+  const YouLostScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,7 +13,7 @@ class YouLostScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
+            const Icon(
               Icons.clear,
               size: 80,
               color: Colors.red,
