@@ -67,6 +67,7 @@ class _NumberGuessingScreenState extends State<NumberGuessingScreen> {
               'You have 3 chances to guess it.',
               style: TextStyle(fontSize: 18),
             ),
+            Text('Secret Number: $secretNumber'),
             const SizedBox(height: 20),
             TextField(
               controller:
