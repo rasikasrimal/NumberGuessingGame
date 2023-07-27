@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:number_game/you_lost.dart';
+import 'dart:math';
+
 import 'correct_guess.dart';
-import 'you_lost.dart';
-import 'dart:math'; // Import the dart:math library
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Number Guessing Game',
       home: NumberGuessingScreen(),
     );
@@ -16,27 +17,25 @@ class MyApp extends StatelessWidget {
 }
 
 class NumberGuessingScreen extends StatefulWidget {
+  const NumberGuessingScreen({Key? key}) : super(key: key);
+
   @override
   _NumberGuessingScreenState createState() => _NumberGuessingScreenState();
 }
 
 class _NumberGuessingScreenState extends State<NumberGuessingScreen> {
-  int secretNumber = Random().nextInt(
-      10); // You can set any random number between 1 and 10 as the secret number
+  int secretNumber =
+      Random().nextInt(10); // Generate a random number between 0 and 9
   int attempts = 0;
-  bool isCorrect = false;
 
-  final guessController = TextEditingController(); // Add TextEditingController
+  final guessController = TextEditingController();
 
   void _checkGuess(int guess) {
     setState(() {
       attempts++;
-      if (guess == secretNumber) {
-        isCorrect = true;
-      }
     });
 
-    if (isCorrect) {
+    if (guess == secretNumber) {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => CorrectGuess()),
@@ -45,6 +44,13 @@ class _NumberGuessingScreenState extends State<NumberGuessingScreen> {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => YouLostScreen()),
+      );
+    } else if (guess > 10) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please enter a number between 0 and 10.'),
+          duration: Duration(seconds: 2),
+        ),
       );
     }
   }
@@ -60,18 +66,18 @@ class _NumberGuessingScreenState extends State<NumberGuessingScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              'I have a secret number in my mind (1 - 10).',
+              'I have a secret number in my mind (0 - 9).',
               style: TextStyle(fontSize: 18),
             ),
             const Text(
               'You have 3 chances to guess it.',
               style: TextStyle(fontSize: 18),
             ),
-            Text('Secret Number: $secretNumber'),
+            Text(
+                'Secret Number: $secretNumber'), // Display the secret number (for debugging purposes)
             const SizedBox(height: 20),
             TextField(
-              controller:
-                  guessController, // Assign the TextEditingController to the TextField
+              controller: guessController,
               keyboardType: TextInputType.number,
               decoration: const InputDecoration(
                 labelText: 'Enter your guess',
@@ -87,8 +93,7 @@ class _NumberGuessingScreenState extends State<NumberGuessingScreen> {
             ),
             ElevatedButton(
               onPressed: () {
-                int guess = int.tryParse(guessController.text) ??
-                    0; // Get the value from the TextField explicitly using TextEditingController
+                int guess = int.tryParse(guessController.text) ?? 0;
                 _checkGuess(guess);
               },
               child: const Text('Submit'),
